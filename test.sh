@@ -1,3 +1,2 @@
-echo "hello world"
-echo "hello world"
-echo "hello world"
+cd /home/opc
+tmux switch-client -t server\; send-keys "$1" Enter

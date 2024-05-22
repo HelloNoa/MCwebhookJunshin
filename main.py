@@ -8,6 +8,8 @@ app = FastAPI()
 # /home/opc
 async def server1():
     os.system('./start.sh')
+async def say1(arg):
+    os.system(f'./test.sh "{arg}"')
 
 
 async def server2():
@@ -24,6 +26,12 @@ async def HealthCheck():
 def restartServer1():
     asyncio.run(server1())
     return {"message": "server1 restart!"}
+
+@app.get(
+    "/say")
+def sayServer1():
+    asyncio.run(say1())
+    return {"message": "say server1"}
 
 
 @app.get(
