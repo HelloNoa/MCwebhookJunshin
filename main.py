@@ -1,20 +1,17 @@
 from fastapi import FastAPI
 import os
 import asyncio
-import ctypes
 
 app = FastAPI()
 
 
 # /home/opc
 async def server1():
-    ctypes.windll.shell32.ShellExecuteA(0, 'open', './start.sh', None, None, 1)
-    # os.system('./start.sh')
+    os.system('./start.sh')
 
 
 async def server2():
-    ctypes.windll.shell32.ShellExecuteA(0, 'open', './start2.sh', None, None, 1)
-    # os.system('./start2.sh')
+    os.system('./start2.sh')
 
 
 @app.get("/")
