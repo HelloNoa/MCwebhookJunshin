@@ -13,6 +13,10 @@ async def server1():
     await process.wait()
 
 async def say1(arg):
+    session_name = "server"
+    process = await asyncio.create_subprocess_exec("tmux", "switch-client", "-t", session_name)
+    await process.wait()
+
     script_name = "test.sh"
     process = await asyncio.create_subprocess_exec("sh", script_name, arg)
     await process.wait()
