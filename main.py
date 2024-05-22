@@ -28,9 +28,9 @@ def restartServer1():
     return {"message": "server1 restart!"}
 
 @app.get(
-    "/say")
-def sayServer1():
-    asyncio.run(say1())
+    "/say/{arg}")
+def sayServer1(arg: str):
+    asyncio.run(say1(arg))
     return {"message": "say server1"}
 
 
