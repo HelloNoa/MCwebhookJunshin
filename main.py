@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 import os
+import asyncio
+
 app = FastAPI()
 # /home/opc
+async def server1():
+    os.system('./start.sh')
 
 @app.get("/")
 async def root():
@@ -13,9 +17,10 @@ async def root():
     return {"message": "server1 restart!"}
 
 @app.get("/MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJxauSJISd6+C88OzRfJtX44ZArNGp7R6untVzaLMjL4MHglWSXeFfC/6IaBNXuuaMIah0B69nPDDnRwmD7ED4sCAwEAAQ==")
-async def start():
-    os.system('./start.sh')
+def start():
+    asyncio.run(server1())
     return {"message": "server2 restart!"}
+
 
 
 @app.get("/hello/{name}")
