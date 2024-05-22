@@ -1,15 +1,20 @@
 from fastapi import FastAPI
 import os
 import asyncio
+import subprocess
 
 app = FastAPI()
 
 
 # /home/opc
 async def server1():
-    os.system('./start.sh')
+    script_name = "start.sh"
+    subprocess.run(f"sh {script_name}", shell=True)
+    # os.system('./start.sh')
 async def say1(arg):
-    os.system(f'./test.sh "{arg}"')
+    script_name = "test.sh"
+    subprocess.run(f"sh {script_name} '{arg}'", shell=True)
+    # os.system(f'./test.sh "{arg}"')
 
 
 async def server2():
