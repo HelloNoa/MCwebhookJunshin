@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 import os
 import asyncio
-import subprocess
+import libtmux
+svr = libtmux.Server()
 
 app = FastAPI()
 
@@ -13,13 +14,14 @@ async def server1():
     await process.wait()
 
 async def say1(arg):
-    session_name = "server"
-    process = await asyncio.create_subprocess_exec("tmux", "switch-client", "-t", session_name)
-    await process.wait()
+    svr.cmd(f'tmux switch-client -t server\; send-keys "{arg}" Enter')
+    # session_name = "server"
+    # process = await asyncio.create_subprocess_exec("tmux", "switch-client", "-t", session_name)
+    # await process.wait()
 
-    script_name = "test.sh"
-    process = await asyncio.create_subprocess_exec("sh", script_name, arg)
-    await process.wait()
+    # script_name = "test.sh"
+    # process = await asyncio.create_subprocess_exec("sh", script_name, arg)
+    # await process.wait()
 
 async def server2():
     script_name = "start2.sh"
