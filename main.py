@@ -14,7 +14,11 @@ async def server1():
     await process.wait()
 
 async def say1(arg):
-    svr.cmd(f'tmux switch-client -t server\; send-keys "{arg}" Enter')
+    ss = svr.sessions.get(session_name="server")
+    window = ss.active_window
+    pane = window.panes[0]
+    pane.send_keys('cd /home/opc')
+    pane.send_keys(arg)
     # session_name = "server"
     # process = await asyncio.create_subprocess_exec("tmux", "switch-client", "-t", session_name)
     # await process.wait()
