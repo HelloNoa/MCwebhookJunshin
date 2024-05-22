@@ -9,9 +9,12 @@ app = FastAPI()
 
 # /home/opc
 async def server1():
-    script_name = "start.sh"
-    process = await asyncio.create_subprocess_exec("sh", script_name)
-    await process.wait()
+    ss = svr.sessions.get(session_name="server")
+    window = ss.active_window
+    pane = window.panes[0]
+    pane.send_keys('cd /home/opc')
+    pane.send_keys('sh log.sh')
+    pane.send_keys('sh run.sh')
 
 async def say1(arg):
     ss = svr.sessions.get(session_name="server")
