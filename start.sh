@@ -1,6 +1,6 @@
 cd /home/opc
+sh log.sh
 tmux switch-client -t server\; send-keys "sh run.sh" Enter
-#sh log.sh
 #tmux attach -t server
 ##!/usr/bin/env sh
 ## Forge requires a configured set of both JVM and program arguments.
