@@ -19,7 +19,7 @@ def restartServer1():
     return {"message": "server1 restart!"}
 
 @app.get("/MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMXloF6aFigQ6QnDcnox9CsdcCVvCctsRYEtYnN+s0tVrXMzuthCm5y7wGHLrhOD3BpJt6ql4Tx4fkBfJecq378CAwEAAQ==")
-async def restartServer2():
+def restartServer2():
     asyncio.run(server2())
     return {"message": "server2 restart!"}
 
