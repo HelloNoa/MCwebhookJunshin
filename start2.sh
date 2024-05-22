@@ -1,6 +1,6 @@
 cd /home/opc
-sh log.sh
-sh run.sh
+sh run2.sh
+sh log2.sh
 #tmux attach -t server
 ##!/usr/bin/env sh
 ## Forge requires a configured set of both JVM and program arguments.
