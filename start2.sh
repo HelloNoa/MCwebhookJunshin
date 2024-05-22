@@ -1,7 +1,7 @@
 cd /home/opc
 #sh init2.sh
-tmux detach -s webhook
-sh log2.sh
+tmux switch-client -t server2
+#sh log2.sh
 sh run2.sh
 #tmux attach -t server
 ##!/usr/bin/env sh
