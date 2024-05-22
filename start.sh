@@ -1,5 +1,5 @@
 cd /home/opc
-tmux switch-client -t server && sh run.sh
+tmux switch-client -t server\; send-keys "sh run.sh" Enter
 #sh log.sh
 #tmux attach -t server
 ##!/usr/bin/env sh
