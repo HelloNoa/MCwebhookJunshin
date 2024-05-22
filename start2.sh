@@ -1,4 +1,5 @@
 cd /home/opc
+sh init2.sh
 sh log2.sh
 sh run2.sh
 #tmux attach -t server
