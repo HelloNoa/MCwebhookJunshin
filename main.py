@@ -31,9 +31,15 @@ async def say1(arg):
     # await process.wait()
 
 async def server2():
-    script_name = "start2.sh"
-    process = await asyncio.create_subprocess_exec("sh", script_name)
-    await process.wait()
+    ss = svr.sessions.get(session_name="server")
+    window = ss.active_window
+    pane = window.panes[0]
+    pane.send_keys('cd /home/opc')
+    pane.send_keys('sh log2.sh')
+    pane.send_keys('sh run2.sh')
+    # script_name = "start2.sh"
+    # process = await asyncio.create_subprocess_exec("sh", script_name)
+    # await process.wait()
 
 
 async def server2():
